@@ -49,10 +49,11 @@ ui <- navbarPage(
 
                 hr(),
                 
-                checkboxInput("show_rownames",
-                              label = "Show row numbers"),
-                checkboxInput("show_features_responsive",
-                              label = "Responsive Layout")
+                # Moved to settings Panel
+                # checkboxInput("show_rownames",
+                #               label = "Show row numbers"),
+                # checkboxInput("show_features_responsive",
+                #               label = "Responsive Layout")
             ),
 
             mainPanel(
@@ -71,7 +72,22 @@ ui <- navbarPage(
             
         )
         
+    ),
+    tabPanel(
+        title = "Settings",
+        
+        mainPanel(
+            h1("Custom Settings"),
+            hr(),
+            checkboxInput("show_rownames",
+                          label = "Show row numbers"),
+            checkboxInput("show_features_responsive",
+                          label = "Responsive Layout")
+            
+        )
+        
     )
+    
 
 
 )
