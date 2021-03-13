@@ -30,7 +30,7 @@ ui <- navbarPage(
 
     title = "Data Explorer",
 
-    theme = bslib::bs_theme(version = 4, bootswatch = "minty"),
+#    theme = bslib::bs_theme(version = 4, bootswatch = "minty"),
 
     tabPanel(
         title = " Data Selection",
@@ -84,7 +84,8 @@ ui <- navbarPage(
             checkboxInput("show_features_responsive",
                           label = "Responsive Layout")
             
-        )
+        ), 
+        shinythemes::themeSelector(),
         
     )
     
