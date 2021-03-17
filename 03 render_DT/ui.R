@@ -1,4 +1,4 @@
-library("DT")
+library(DT)
 
 navbarPage(
   "DT Interactive Tables",
