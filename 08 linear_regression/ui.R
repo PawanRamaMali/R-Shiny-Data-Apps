@@ -404,11 +404,7 @@ body <- dashboardBody(
       #    howto_country()
           ) ,
       
-      ## 3... wait message ------
-      hidden(div(
-        id = 'wait_message_input_data_tab',
-        h2("I am preparing the report now and only for you .....")
-      )),
+      
       
       ## 3... div to holder created UIs ------
       tags$div(id = 'country_name'),
