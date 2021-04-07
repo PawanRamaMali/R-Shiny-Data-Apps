@@ -1,21 +1,50 @@
-###################
 # body.R
-###################
+
 body <- dashboardBody(tabItems(
+  # # Dashboard Tab ----
   
-  ########################
-  # Dashboard Tab ----
-  ########################
-  tabItem(tabName = "dashboard",
-          fluidPage(h2("Dashboard View"))),
+  # tabItem(tabName = "dashboard",
+  #         fluidPage(h2("Dashboard View"))),
   
-  ########################
+  
+  
+  # Data Selection Tab ----
+  
+  
+  tabItem(tabName = "tab_data_selection",
+          fluidPage(
+            sidebarLayout(
+              sidebarPanel(
+                width = 3,
+                h1("Explore a Dataset"),
+                
+                shiny::selectInput(
+                  inputId = "dataset_choice",
+                  label   = "Data Connection",
+                  choices = c("StackOverflow", "Car Prices", "Sacramento Housing")
+                ),
+                
+                hr(),
+                
+                # Moved to settings Panel
+                # checkboxInput("show_rownames",
+                #               label = "Show row numbers"),
+                # checkboxInput("show_features_responsive",
+                #               label = "Responsive Layout")
+              ),
+              
+              mainPanel(dataTableOutput("show_data"))
+            )
+          )),
+  
+  
+  
   # Linear Regression Tab ----
-  ########################
+  
   tabItem(
     tabName = "tab_linear_regression",
     fluidPage(
-      titlePanel("Simple Linear Regression"),
+      titlePanel("Linear Regression"),
       br(),
       withMathJax(),
       
@@ -91,20 +120,62 @@ body <- dashboardBody(tabItems(
     
   ),
   
-  ########################
-  # Linear Regression Tab ----
-  ########################
+  
+  # Correlation Tab ----
+  
+  
+  tabItem(tabName = "tab_correlation",
+          fluidPage(
+            title = "Correlation Plot",
+            mainPanel(
+              plotlyOutput("corrplot", height = 700)
+            )
+          )),
+  
+  
+  
+  
+  # Settings Tab ----
+  
+  
+  tabItem(tabName = "tab_app_settings",
+          fluidPage(
+            title = "Settings",
+            
+            mainPanel(
+              h1("Custom Settings"),
+              hr(),
+              checkboxInput("show_rownames",
+                            label = "Show row numbers"),
+              checkboxInput("show_features_responsive",
+                            label = "Responsive Layout")
+              
+            )
+            
+            
+            
+          )),
+  
+  
+  # About Me Tab ----
+  
   
   tabItem(tabName = "tab_about_me",
-          fluidPage(
+          fluidPage(sidebarPanel(
+            width = 3,
             h2("About Me"),
-            h4(
+         
+            hr(),
+            h5(" I am Pawan Rama Mali"),
+            h6(" I'm currently working on Software Development"),
+            h6(" Also, I'm currently learning Artificial Intelligence"),
+            h5(
               tags$a(href = "https://www.github.com/PawanRamaMali", "GitHub Link")
             ),
-            h4(
+            h5(
               tags$a(href = "https://pawanramamali.github.io/", "Website Link")
             )
-                    ))
+          )))
   
   
   
