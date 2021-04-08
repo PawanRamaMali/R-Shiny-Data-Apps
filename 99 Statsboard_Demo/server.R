@@ -298,4 +298,9 @@ server <- function(input, output, session) {
   })
   
   
+  observeEvent(input$tabs,if(input$tabs ==input$tab_data_overview){
+    callModule(module = esquisserServer, id = "esquisse",data = rv$data_set)
+  })
+  
+  
 }

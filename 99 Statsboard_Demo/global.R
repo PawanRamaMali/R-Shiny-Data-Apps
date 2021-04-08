@@ -1,5 +1,6 @@
 # global.R
 
+rm(list=ls())
 
 # LIBRARIES ----
 
@@ -25,6 +26,19 @@ library(rmarkdown)
 library(knitr)
 library(pander)
 
+library(shiny)
+library(shinydashboard)
+library(shinyAce)
+library(shinyWidgets)
+library(data.table)
+library(esquisse)
+library(rvg)
+library(magrittr)
+
+
+## Setting Upload Size to 1GB
+options(shiny.maxRequestSize = 1000000000)
+options("esquisse.display.mode" = "browser")
 
 # LOAD DATASETS ----
 utils::data("stackoverflow", "car_prices", "Sacramento", package = "modeldata")

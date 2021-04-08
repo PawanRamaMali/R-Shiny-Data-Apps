@@ -1,6 +1,6 @@
 # body.R
 
-body <- dashboardBody(tabItems(
+body <- dashboardBody(tabItems( id = "tabs"
   # # Dashboard Tab ----
   
   # tabItem(tabName = "dashboard",
@@ -35,6 +35,24 @@ body <- dashboardBody(tabItems(
               
               mainPanel(dataTableOutput("show_data"))
             )
+          )),
+  
+  # Data Overview Tab ----
+  # 
+  tabItem(tabName = "tab_data_overview",
+          fluidPage(
+            h1("Data Overview"),
+           
+            chooseDataUI(id = "choose1"),
+            esquisserUI(
+              
+              id = "esquisse",
+              header = FALSE, # dont display gadget title
+              choose_data = TRUE, # dont display button to change data
+              container = esquisseContainer(height = "700px")
+              
+            )
+            
           )),
   
   
