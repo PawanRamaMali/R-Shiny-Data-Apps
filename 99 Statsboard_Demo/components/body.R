@@ -1,6 +1,6 @@
 # body.R
 
-body <- dashboardBody(tabItems( id = "tabs"
+body <- dashboardBody(tabItems( 
   # # Dashboard Tab ----
   
   # tabItem(tabName = "dashboard",
